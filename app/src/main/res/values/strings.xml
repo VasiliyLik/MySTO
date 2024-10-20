@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HomeWork6STO</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="tv_add_car">Add car</string>
+    <string name="tv_no_photo">No photo</string>
+    <string name="tv_owner_name">Owner name</string>
+    <string name="tv_producer">Producer</string>
+    <string name="tv_model">Model</string>
+    <string name="tv_plate_number">Plate number</string>
+    <string name="tv_car_list">Car list</string>
+    <string name="tv_car_info">Сar info</string>
+    <string name="tv_no_cars_added">No cars added</string>
+    <string name="tv_no_works_added">No works added</string>
+</resources>

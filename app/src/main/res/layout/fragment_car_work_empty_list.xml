@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carWorkEmptyList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.likchachevskiy.android.homework6sto.CarWorkEmptyListFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#4E4D4D"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imBtnCarWorkEmptyListBackStart"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#4E4D4D"
+            android:importantForAccessibility="no"
+            android:src="@drawable/arrow_backstart"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCarWorkEmptyListCarName"
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="2"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:ignore="InefficientWeight,TextContrastCheck"
+                tools:text="@string/tv_producer" />
+
+            <TextView
+                android:id="@+id/tvCarWorkEmptyListCarNumber"
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="@string/tv_plate_number" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imBtnCarWorkEmptyListSearch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#4E4D4D"
+            android:importantForAccessibility="no"
+            android:src="@drawable/search"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/imBtnCarWorkEmptyListVert"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#4E4D4D"
+            android:importantForAccessibility="no"
+            android:src="@drawable/vert"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/tv_no_works_added"
+        android:textSize="18sp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCarWorkEmptyListAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/purple_700"
+        android:src="@drawable/repair"
+        app:tint="@color/white"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+
+</FrameLayout>
