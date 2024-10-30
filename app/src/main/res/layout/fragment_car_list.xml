@@ -38,7 +38,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_cars"
+        android:id="@+id/recyclerViewCars"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="82dp"
@@ -46,6 +46,7 @@
         tools:listitem="@layout/item_car" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"

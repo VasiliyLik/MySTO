@@ -1,7 +1,8 @@
-package com.likchachevskiy.android.homework6sto
+package com.likchachevskiy.android.mysto
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity(R.layout.activity_inflate) {
 

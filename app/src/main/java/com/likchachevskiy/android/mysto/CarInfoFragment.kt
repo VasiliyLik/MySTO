@@ -1,4 +1,4 @@
-package com.likchachevskiy.android.homework6sto
+package com.likchachevskiy.android.mysto
 
 import androidx.fragment.app.Fragment
 
