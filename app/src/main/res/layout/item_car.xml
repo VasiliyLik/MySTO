@@ -11,33 +11,31 @@
     android:background="@drawable/view_card_car_part1"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="160dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivItemCarPhoto"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="150dp"
             android:background="#9F9D9D"
             android:importantForAccessibility="no"
             app:srcCompat="@drawable/camera"
             tools:ignore="ImageContrastCheck" />
 
-        <ImageButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/imageBtnItemCarEdit"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="16dp"
-            android:background="#9F9D9D"
-            android:importantForAccessibility="no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
             android:src="@drawable/edit"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+            app:backgroundTint="@color/purple_700"
+            app:tint="@color/white"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,32 +51,40 @@
             android:weightSum="4">
 
             <TextView
-                android:id="@+id/tvItemCarOwnerName"
+                android:id="@+id/tvTitleOwnerName"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:hint="Owner name"
+                android:layout_weight="0.2"
+                android:hint="@string/tv_owner_name2"
                 android:inputType="textCapSentences"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
+
                 tools:ignore="TextSizeCheck,TextViewEdits,TouchTargetSizeCheck" />
 
-            <View
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
-
             <TextView
-                android:id="@+id/tvItemCarCarNumber"
+                android:id="@+id/tvItemOwnerName"
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
+                android:hint="@string/tv_text"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_weight="1.8"
+                tools:ignore="VisualLintBounds" />
+
+            <TextView
+                android:id="@+id/tvItemCarNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginStart="100dp"
+                android:textColor="@color/black"
+                android:layout_weight="1.8"
                 android:background="@drawable/edit_text_style"
-                android:gravity="center" />
+                android:gravity="center"
+                tools:ignore="VisualLintBounds" />
 
         </LinearLayout>
 
@@ -88,14 +94,24 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvItemCarCarName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/tvTitleCarName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                tools:text="Car name" />
+                android:textSize="16sp"
+                android:text="@string/tv_title_car_name" />
+
+            <TextView
+                android:id="@+id/tvItemCarName"
+                android:textSize="18sp"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/black"
+                android:hint="@string/tv_text"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </LinearLayout>
