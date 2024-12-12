@@ -45,21 +45,21 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="#4E4D4D"
+            android:clickable="true"
             android:importantForAccessibility="no"
             android:src="@drawable/done"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageViewInfoCar"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="80dp"
-        android:background="#9F9D9D"
         android:gravity="center"
-        android:text="@string/tv_no_photo"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:src="@drawable/ic_no_car_preview"
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:layout_width="match_parent"

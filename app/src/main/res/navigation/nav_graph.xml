@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:defaultNavHost="true"
+    app:startDestination="@id/carListFragment">
+
+    <fragment
+        android:id="@+id/carListFragment"
+        android:name="com.likchachevskiy.android.mysto.CarListFragment"
+        android:label="CarListFragment"
+        tools:layout="@layout/fragment_car_list">
+        <action
+            android:id="@+id/action_carListFragment_to_addCarFragment"
+            app:destination="@id/addCarFragment"
+            app:restoreState="true"/>
+        <action
+            android:id="@+id/action_carListFragment_to_carInfoFragment"
+            app:destination="@id/carInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCarFragment"
+        android:name="com.likchachevskiy.android.mysto.AddCarFragment"
+        android:label="AddCarFragment"
+        tools:layout="@layout/fragment_add_car">
+    </fragment>
+
+    <fragment
+        android:id="@+id/carInfoFragment"
+        android:name="com.likchachevskiy.android.mysto.CarInfoFragment"
+        android:label="CarInfoFragment"
+        tools:layout="@layout/fragment_car_info"/>
+    <fragment
+        android:id="@+id/carWorkEmptyListFragment"
+        android:name="com.likchachevskiy.android.mysto.CarWorkEmptyListFragment"
+        android:label="fragment_car_work_empty_list"
+        tools:layout="@layout/fragment_car_work_empty_list" />
+</navigation>

@@ -2,11 +2,13 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
 
+    id("androidx.navigation.safeargs.kotlin")
+
 }
 
 android {
     namespace = "com.likchachevskiy.android.mysto"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.likchachevskiy.android.mysto"
@@ -53,12 +55,15 @@ dependencies {
 
     implementation(libs.coil)
 
-          // Views/Fragments integration
+    // Views/Fragments integration
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
     // Feature module support for Fragments
     implementation(libs.androidx.navigation.dynamic.features.fragment)
+
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
 
 
 }
