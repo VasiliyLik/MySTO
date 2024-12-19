@@ -1,22 +1,22 @@
-package com.likchachevskiy.android.mysto
+package com.likchachevskiy.android.mysto.ui.screens.addcar
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.likchachevskiy.android.mysto.R
 import com.likchachevskiy.android.mysto.databinding.FragmentAddCarBinding
 import com.likchachevskiy.android.mysto.domain.entity.Car
-import com.likchachevskiy.android.mysto.viewmodel.CarViewModel
 
 class AddCarFragment : Fragment(R.layout.fragment_add_car) {
 
     private var _binding: FragmentAddCarBinding? = null
     private val binding get() = _binding!!
 
-    private val carViewModel: CarViewModel by activityViewModels()
+    private lateinit var viewModel: AddCarViewModel
 
     private var indexImage = 0
     private var imageId = R.drawable.ic_no_car_preview
@@ -51,8 +51,10 @@ class AddCarFragment : Fragment(R.layout.fragment_add_car) {
             imageViewInfoCar.setImageResource(imageId)
         }
 
-            imBtnAddCarDone.setOnClickListener {
+        viewModel = ViewModelProvider(requireActivity())[AddCarViewModel::class.java]
 
+            imBtnAddCarDone.setOnClickListener {
+                val id = 0
                 val carName = etAddCarModel.text.toString()
                 val carProducer = etAddCarProducer.text.toString()
                 val plateNumber = etAddCarPlateNumber.text.toString()
@@ -60,11 +62,9 @@ class AddCarFragment : Fragment(R.layout.fragment_add_car) {
                 val ownerName = etAddCarOwnerName.text.toString()
                 val car = Car(id, carName, carProducer, plateNumber, photo, ownerName)
 
-                carViewModel.sendData(car)
+                viewModel.insert(car){}
 
-//                setFragmentResult("requestKey", bundleOf("extraKey" to car))
-
-                findNavController().popBackStack()
+                findNavController().navigate(R.id.action_addCarFragment_to_carListFragment)
             }
         }
 
