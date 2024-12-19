@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/carListFragment"
-        android:name="com.likchachevskiy.android.mysto.CarListFragment"
+        android:name="com.likchachevskiy.android.mysto.ui.screens.listcar.CarListFragment"
         android:label="CarListFragment"
         tools:layout="@layout/fragment_car_list">
         <action
@@ -22,16 +22,27 @@
 
     <fragment
         android:id="@+id/addCarFragment"
-        android:name="com.likchachevskiy.android.mysto.AddCarFragment"
+        android:name="com.likchachevskiy.android.mysto.ui.screens.addcar.AddCarFragment"
         android:label="AddCarFragment"
         tools:layout="@layout/fragment_add_car">
+        <action
+            android:id="@+id/action_addCarFragment_to_carListFragment"
+            app:destination="@id/carListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
     <fragment
         android:id="@+id/carInfoFragment"
-        android:name="com.likchachevskiy.android.mysto.CarInfoFragment"
+        android:name="com.likchachevskiy.android.mysto.ui.screens.detailcar.CarInfoFragment"
         android:label="CarInfoFragment"
-        tools:layout="@layout/fragment_car_info"/>
+        tools:layout="@layout/fragment_car_info">
+        <action
+            android:id="@+id/action_carInfoFragment_to_carListFragment"
+            app:destination="@id/carListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
     <fragment
         android:id="@+id/carWorkEmptyListFragment"
         android:name="com.likchachevskiy.android.mysto.CarWorkEmptyListFragment"

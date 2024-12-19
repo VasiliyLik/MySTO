@@ -1,19 +1,20 @@
-package com.likchachevskiy.android.mysto
+package com.likchachevskiy.android.mysto.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.likchachevskiy.android.mysto.R
 import com.likchachevskiy.android.mysto.databinding.ItemCarBinding
 import com.likchachevskiy.android.mysto.domain.entity.Car
 
 
-class CarsAdapter(
-    private val cars: MutableList<Car>,
-//    private var onCarClickListener: (Car) -> Unit
-) :
+class CarsAdapter:
     RecyclerView.Adapter<CarsAdapter.CarViewHolder>() {
+
+    private var cars = emptyList<Car>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
 
@@ -37,11 +38,7 @@ class CarsAdapter(
 //        diff.dispatchUpdatesTo(this)
 //    }
 
-    class CarViewHolder(
-        item: View
-//        private val onItemClick: (Car) -> Unit
-    ) :
-        RecyclerView.ViewHolder(item) {
+    class CarViewHolder(item: View): RecyclerView.ViewHolder(item) {
         private val binding = ItemCarBinding.bind(item)
 
         fun onBind(car: Car) {
@@ -58,6 +55,12 @@ class CarsAdapter(
 //                }
             }
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setList(list: List<Car>) {
+        cars = list
+        notifyDataSetChanged()
     }
 }
 
