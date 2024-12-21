@@ -8,23 +8,25 @@
 
     <fragment
         android:id="@+id/carListFragment"
-        android:name="com.likchachevskiy.android.mysto.ui.screens.listcar.CarListFragment"
-        android:label="CarListFragment"
+        android:name="com.likchachevskiy.android.mysto.ui.screens.listcar.ListCarFragment"
+        android:label="fragment_car_list"
         tools:layout="@layout/fragment_car_list">
+
+
         <action
             android:id="@+id/action_carListFragment_to_addCarFragment"
-            app:destination="@id/addCarFragment"
-            app:restoreState="true"/>
+            app:destination="@id/addCarFragment" />
         <action
-            android:id="@+id/action_carListFragment_to_carInfoFragment"
-            app:destination="@id/carInfoFragment" />
+            android:id="@+id/action_carListFragment_to_detailCarFragment"
+            app:destination="@id/detailCarFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/addCarFragment"
         android:name="com.likchachevskiy.android.mysto.ui.screens.addcar.AddCarFragment"
-        android:label="AddCarFragment"
+        android:label="fragment_add_car"
         tools:layout="@layout/fragment_add_car">
+
         <action
             android:id="@+id/action_addCarFragment_to_carListFragment"
             app:destination="@id/carListFragment"
@@ -33,12 +35,13 @@
     </fragment>
 
     <fragment
-        android:id="@+id/carInfoFragment"
-        android:name="com.likchachevskiy.android.mysto.ui.screens.detailcar.CarInfoFragment"
-        android:label="CarInfoFragment"
-        tools:layout="@layout/fragment_car_info">
+        android:id="@+id/detailCarFragment"
+        android:name="com.likchachevskiy.android.mysto.ui.screens.detailcar.DetailCarFragment"
+        android:label="fragment_car_detail"
+        tools:layout="@layout/fragment_car_detail">
+
         <action
-            android:id="@+id/action_carInfoFragment_to_carListFragment"
+            android:id="@+id/action_detailCarFragment_to_carListFragment"
             app:destination="@id/carListFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/nav_graph" />
