@@ -56,7 +56,7 @@
                 android:layout_height="25dp"
                 android:layout_marginStart="8dp"
                 android:layout_weight="0.2"
-                android:hint="@string/tv_owner_name2"
+                android:hint="@string/tv_owner_name"
                 android:inputType="textCapSentences"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
