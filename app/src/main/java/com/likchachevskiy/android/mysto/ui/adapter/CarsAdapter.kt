@@ -1,9 +1,9 @@
 package com.likchachevskiy.android.mysto.ui.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.likchachevskiy.android.mysto.R
@@ -15,7 +15,7 @@ import com.likchachevskiy.android.mysto.ui.screens.listcar.ListCarFragment
 class CarsAdapter :
     RecyclerView.Adapter<CarsAdapter.CarViewHolder>() {
 
-    private var cars = emptyList<Car>()
+    private var cars = mutableListOf<Car>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
 
@@ -32,13 +32,13 @@ class CarsAdapter :
         }
     }
 
-//    fun update(newList: List<Car>) {
-//        val diffUtil = DiffUtilCallBack(cars, newList)
-//        val diff = DiffUtil.calculateDiff(diffUtil)
-//        cars.clear()
-//        cars.addAll(newList)
-//        diff.dispatchUpdatesTo(this)
-//    }
+    fun setList(newList: List<Car>) {
+        val diffUtil = DiffUtilCallBack(cars, newList)
+        val diff = DiffUtil.calculateDiff(diffUtil)
+        cars.clear()
+        cars.addAll(newList)
+        diff.dispatchUpdatesTo(this)
+    }
 
     class CarViewHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemCarBinding.bind(item)
@@ -55,27 +55,21 @@ class CarsAdapter :
             }
         }
     }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<Car>) {
-        cars = list
-        notifyDataSetChanged()
-    }
 }
 
-//private class DiffUtilCallBack(
-//    private val old: List<Car>,
-//    private val new: List<Car>
-//) : DiffUtil.Callback() {
-//    override fun getOldListSize(): Int = old.size
-//
-//    override fun getNewListSize(): Int = new.size
-//
-//    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-//        return old[oldItemPosition] == new[newItemPosition]
-//    }
-//
-//    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-//        return old[oldItemPosition] == new[newItemPosition]
-//    }
-//}
+private class DiffUtilCallBack(
+    private val oldList: List<Car>,
+    private val newList: List<Car>
+) : DiffUtil.Callback() {
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition] === newList[newItemPosition]
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition] == newList[newItemPosition]
+    }
+}
