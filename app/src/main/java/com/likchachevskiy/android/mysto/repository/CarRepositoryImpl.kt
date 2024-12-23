@@ -18,4 +18,11 @@ class CarRepositoryImpl(private val carDao: CarDao): CarRepository {
         carDao.deleteCar(car)
         onSuccess()
     }
+
+    override suspend fun updateCar(car: Car, onSuccess: () -> Unit) {
+        carDao.updateCar(car)
+        onSuccess()
+    }
+
+
 }

@@ -20,6 +20,17 @@ class DetailCarFragment : Fragment(R.layout.fragment_car_detail) {
     private lateinit var viewModel: DetailCarViewModel
     private lateinit var expectCar: Car
 
+    private var indexImage = 0
+    private var imageId = R.drawable.ic_no_car_preview
+
+    private val imageIdList = listOf(
+        R.drawable.yellow_car,
+        R.drawable.supercar,
+        R.drawable.lamborghini,
+        R.drawable.sport_car,
+        R.drawable.police_car
+    )
+
     @SuppressLint("NewApi")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,21 +50,51 @@ class DetailCarFragment : Fragment(R.layout.fragment_car_detail) {
     }
 
     private fun init() {
+        binding.fabCarUpdatePhoto.setOnClickListener {
+            indexImage++
+            if (indexImage > imageIdList.size - 1) indexImage = 0
+            imageId = imageIdList[indexImage]
+            binding.ivUpdateCarPhoto.setImageResource(imageId)
+
+        }
+
         viewModel = ViewModelProvider(this)[DetailCarViewModel::class.java]
 
-        val image = binding.ivAddCarPhoto
+        val image = binding.ivUpdateCarPhoto
         val ownerName = binding.etCarInfoOwnerName
         val producerName = binding.etCarInfoProducer
         val model = binding.etCarInfoModel
         val plateNumber = binding.etCarInfoPlateNumber
 
         image.setImageResource(expectCar.photo)
-        ownerName.text = expectCar.ownerName
-        producerName.text = expectCar.carProducer
-        model.text = expectCar.carModel
-        plateNumber.text = expectCar.plateNumber
+        ownerName.setText(expectCar.ownerName)
+        producerName.setText(expectCar.carProducer)
+        model.setText(expectCar.carModel)
+        plateNumber.setText(expectCar.plateNumber)
 
-        binding.imBtnCarInfoBackStart.setOnClickListener {
+        binding.imBtnUpdate.setOnClickListener {
+            if (imageId == R.drawable.ic_no_car_preview) {
+                imageId = expectCar.photo
+            }
+            val ownerNameUpdate = binding.etCarInfoOwnerName.text
+            val producerNameUpdate = binding.etCarInfoProducer.text
+            val modelUpdate = binding.etCarInfoModel.text
+            val plateNunberUpdate = binding.etCarInfoPlateNumber.text
+
+            val upDateCar = Car(
+                expectCar.id,
+                modelUpdate.toString(),
+                producerNameUpdate.toString(),
+                plateNunberUpdate.toString(),
+                imageId,
+                ownerNameUpdate.toString()
+            )
+            viewModel.updateCar(upDateCar) {}
+
+            findNavController().navigate(R.id.action_detailCarFragment_to_carListFragment)
+        }
+
+        binding.imBtnCarDetailBackStart.setOnClickListener {
             findNavController().navigate(R.id.action_detailCarFragment_to_carListFragment)
         }
 

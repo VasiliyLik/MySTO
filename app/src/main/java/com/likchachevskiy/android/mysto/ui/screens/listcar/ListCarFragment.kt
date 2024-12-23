@@ -32,10 +32,6 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
     ): View {
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
 
-        binding.btnAddCar.setOnClickListener {
-            findNavController().navigate(R.id.action_carListFragment_to_addCarFragment)
-        }
-
         return binding.root
     }
 

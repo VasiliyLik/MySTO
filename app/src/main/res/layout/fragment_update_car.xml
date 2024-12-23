@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fragmentCarInfo"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentAddCar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -17,10 +17,9 @@
         android:weightSum="4">
 
         <ImageButton
-            android:id="@+id/imBtnCarDetailBackStart"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="4dp"
+            android:id="@+id/imBtnAddCarBackStart"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="#4E4D4D"
@@ -29,154 +28,167 @@
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/tvCarInfo"
-            android:layout_width="240dp"
+            android:id="@+id/tvUpdateCar"
+            android:layout_width="260dp"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="@string/tv_car_info"
+            android:text="@string/tv_update_car"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             tools:ignore="InefficientWeight" />
 
         <ImageButton
-            android:id="@+id/imBtnUpdate"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/imBtnUpdateCarDone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="#4E4D4D"
+            android:clickable="true"
             android:importantForAccessibility="no"
-            android:src="@drawable/edit"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
-        <ImageButton
-            android:id="@+id/imBtnDelete"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="#4E4D4D"
-            android:importantForAccessibility="no"
-            android:src="@drawable/delete"
+            android:src="@drawable/done"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageViewUpdateCar"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="80dp"
-        android:background="#9F9D9D"
-        android:gravity="center">
+        android:gravity="center"
+        android:src="@drawable/ic_no_car_preview"
+        tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/ivUpdateCarPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#9F9D9D"
-            android:importantForAccessibility="no"
-            android:src="@drawable/camera"
-            tools:ignore="ImageContrastCheck" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAddCarOwnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/tv_owner_name"
+            android:textColor="@color/purple_700" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAddCarOwnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ems="18"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProducerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_producer"
+                android:textColor="@color/purple_700" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddCarProducer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="9"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAddCarModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_model"
+                android:textColor="@color/purple_700" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddCarModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:ems="8"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="460dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvCarInfoOwnerName"
+            android:id="@+id/tvAddCarPlateNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_owner_name"
-            android:textColor="@color/purple_700" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etCarInfoOwnerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="18"
-            android:importantForAutofill="no"
-            android:minHeight="48dp"
-            tools:text="ownerName"
-            android:textSize="18sp"
-            android:gravity="center_vertical"
-            android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvCarInfoProducerName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_producer"
-                android:textColor="@color/purple_700" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etCarInfoProducer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="18"
-            android:gravity="center_vertical"
-            android:importantForAutofill="no"
-            android:minHeight="48dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="DuplicateSpeakableTextCheck"
-            tools:text="@string/tv_producer" />
-
-
-            <TextView
-                android:id="@+id/tv_сarInfo_model"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_model"
-                android:textColor="@color/purple_700" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etCarInfoModel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="18"
-            android:gravity="center_vertical"
-            android:importantForAutofill="no"
-            android:minHeight="48dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck,DuplicateSpeakableTextCheck"
-            tools:text="@string/tv_model" />
-
-        <TextView
-            android:id="@+id/tvCarInfoPlateNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="@string/tv_plate_number"
             android:textColor="@color/purple_700" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etCarInfoPlateNumber"
+            android:id="@+id/etAddCarPlateNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:ems="18"
-            android:gravity="center_vertical"
+            android:importantForAutofill="no"
             android:minHeight="48dp"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:ignore="DuplicateSpeakableTextCheck"
-            tools:text="@string/tv_plate_number" />
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TextFields" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCarUpdatePhoto"
+        android:id="@+id/fabEmptyAddCarPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="252dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="@color/purple_700"
+        android:elevation="8dp"
         android:src="@drawable/camera"
         app:tint="@color/white"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />

@@ -6,6 +6,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="tv_add_car">Add car</string>
+    <string name="tv_update_car">Update car</string>
     <string name="tv_no_photo">No photo</string>
     <string name="tv_owner_name">Owner name</string>
     <string name="tv_producer">Producer</string>
@@ -17,4 +18,5 @@
     <string name="tv_no_works_added">No works added</string>
     <string name="tv_text">text</string>
     <string name="tv_title_car_name">Model:</string>
+
 </resources>
