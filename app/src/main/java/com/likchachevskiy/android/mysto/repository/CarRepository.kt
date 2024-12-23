@@ -10,4 +10,6 @@ interface CarRepository {
     suspend fun insertCar(car: Car, onSuccess:() -> Unit)
 
     suspend fun deleteCar(car: Car, onSuccess:() -> Unit)
+
+    suspend fun updateCar(car: Car, onSuccess:() -> Unit)
 }

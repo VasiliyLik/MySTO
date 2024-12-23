@@ -41,6 +41,10 @@ class AddCarFragment : Fragment(R.layout.fragment_add_car) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initButtons()
+
+        binding.imBtnAddCarBackStart.setOnClickListener {
+            findNavController().navigate(R.id.action_addCarFragment_to_carListFragment)
+        }
     }
 
     private fun initButtons() = with(binding) {

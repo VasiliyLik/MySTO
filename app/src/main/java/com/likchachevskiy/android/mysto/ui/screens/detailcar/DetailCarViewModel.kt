@@ -18,4 +18,11 @@ class DetailCarViewModel(
                 onSuccess()
             }
         }
+
+    fun updateCar(car: Car, onSuccess: () -> Unit) =
+        viewModelScope.launch(dispatcher) {
+            REPOSITORY.updateCar(car) {
+                onSuccess()
+            }
+        }
 }
