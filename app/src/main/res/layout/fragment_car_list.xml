@@ -9,44 +9,56 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="78dp"
         android:background="#4E4D4D"
         android:orientation="horizontal"
-        android:paddingTop="20dp"
+        android:paddingTop="4dp"
         android:weightSum="4">
 
         <TextView
             android:id="@+id/tvCarList"
-            android:layout_width="260dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_weight="3"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:text="@string/tv_car_list"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="22sp"
+            tools:ignore="VisualLintBounds" />
 
-        <ImageButton
-            android:id="@+id/imBtnSearch"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="#4E4D4D"
-            android:importantForAccessibility="no"
-            android:src="@drawable/search"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="8dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/carSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:textCursorDrawable="@null"
+                app:queryHint="Search here..."
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent" />
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvCarListInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/tv_no_cars_added"
-        android:visibility="invisible"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCars"

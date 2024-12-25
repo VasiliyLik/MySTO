@@ -79,18 +79,17 @@ class DetailCarFragment : Fragment(R.layout.fragment_car_detail) {
             val ownerNameUpdate = binding.etCarInfoOwnerName.text
             val producerNameUpdate = binding.etCarInfoProducer.text
             val modelUpdate = binding.etCarInfoModel.text
-            val plateNunberUpdate = binding.etCarInfoPlateNumber.text
+            val plateNumberUpdate = binding.etCarInfoPlateNumber.text
 
             val upDateCar = Car(
                 expectCar.id,
                 modelUpdate.toString(),
                 producerNameUpdate.toString(),
-                plateNunberUpdate.toString(),
+                plateNumberUpdate.toString(),
                 imageId,
                 ownerNameUpdate.toString()
             )
             viewModel.updateCar(upDateCar) {}
-
             findNavController().navigate(R.id.action_detailCarFragment_to_carListFragment)
         }
 

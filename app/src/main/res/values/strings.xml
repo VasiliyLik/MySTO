@@ -13,7 +13,7 @@
     <string name="tv_model">Model</string>
     <string name="tv_plate_number">Plate number</string>
     <string name="tv_car_list">Car list</string>
-    <string name="tv_car_info">Сar info</string>
+    <string name="tv_car_detail">Сar details</string>
     <string name="tv_no_cars_added">No cars added</string>
     <string name="tv_no_works_added">No works added</string>
     <string name="tv_text">text</string>

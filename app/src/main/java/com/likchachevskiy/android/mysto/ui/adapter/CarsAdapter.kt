@@ -1,5 +1,6 @@
 package com.likchachevskiy.android.mysto.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +13,8 @@ import com.likchachevskiy.android.mysto.domain.entity.Car
 import com.likchachevskiy.android.mysto.ui.screens.listcar.ListCarFragment
 
 
-class CarsAdapter :
+class CarsAdapter(private var cars : MutableList<Car>) :
     RecyclerView.Adapter<CarsAdapter.CarViewHolder>() {
-
-    private var cars = mutableListOf<Car>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
 
@@ -38,6 +37,12 @@ class CarsAdapter :
         cars.clear()
         cars.addAll(newList)
         diff.dispatchUpdatesTo(this)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setFilteredList(mList: ArrayList<Car>){
+        this.cars = mList
+        notifyDataSetChanged()
     }
 
     class CarViewHolder(item: View) : RecyclerView.ViewHolder(item) {
