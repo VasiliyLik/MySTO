@@ -39,6 +39,7 @@ class CarsAdapter(private var cars : MutableList<Car>) :
         diff.dispatchUpdatesTo(this)
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     fun setFilteredList(mList: ArrayList<Car>){
         this.cars = mList

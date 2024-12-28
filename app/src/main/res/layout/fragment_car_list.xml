@@ -58,6 +58,7 @@
         android:text="@string/tv_no_cars_added"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
     <androidx.recyclerview.widget.RecyclerView
