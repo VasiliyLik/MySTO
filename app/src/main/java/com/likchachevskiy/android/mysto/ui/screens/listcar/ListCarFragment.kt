@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.likchachevskiy.android.mysto.R
 import com.likchachevskiy.android.mysto.databinding.FragmentCarListBinding
 import com.likchachevskiy.android.mysto.domain.entity.Car
 import com.likchachevskiy.android.mysto.ui.adapter.CarsAdapter
-import com.likchachevskiy.android.mysto.utilits.APP_ACTIVITY
+import com.likchachevskiy.android.mysto.utilits.BUNDLE
+import com.likchachevskiy.android.mysto.utilits.KEY
 import java.util.Locale
 
 class ListCarFragment : Fragment(R.layout.fragment_car_list) {
@@ -43,6 +44,13 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
         super.onViewCreated(view, savedInstanceState)
 
         init()
+
+        adapter.onItemClick {
+            val bundle = Bundle()
+            bundle.putParcelable(BUNDLE, it)
+            setFragmentResult(KEY, bundle)
+            findNavController().navigate(R.id.action_carListFragment_to_detailCarFragment)
+        }
     }
 
     private fun init() {
@@ -92,16 +100,6 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
             } else {
                 adapter.setFilteredList(filteredList)
             }
-        }
-    }
-
-    companion object {
-
-        fun onClickCar(car: Car) {
-            val bundle = Bundle()
-            bundle.putParcelable("car", car)
-            APP_ACTIVITY.findNavController(R.id.nav_host_fragment)
-                .navigate(R.id.action_carListFragment_to_detailCarFragment, bundle)
         }
     }
 
