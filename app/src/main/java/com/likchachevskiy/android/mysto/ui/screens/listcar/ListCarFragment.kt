@@ -65,8 +65,8 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
         viewModel.getAllCars().observe(viewLifecycleOwner) { listCars ->
             adapter.setList(listCars.asReversed())
 
-            if (listCars.isNotEmpty())
-                binding.tvCarListInfo.visibility = View.INVISIBLE
+            if (listCars.isEmpty())
+                binding.tvCarListInfo.visibility = View.VISIBLE
 
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
