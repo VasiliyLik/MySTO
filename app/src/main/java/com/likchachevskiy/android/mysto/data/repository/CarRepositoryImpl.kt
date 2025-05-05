@@ -1,8 +1,9 @@
-package com.likchachevskiy.android.mysto.repository
+package com.likchachevskiy.android.mysto.data.repository
 
 import androidx.lifecycle.LiveData
 import com.likchachevskiy.android.mysto.data.CarDao
 import com.likchachevskiy.android.mysto.domain.entity.Car
+import com.likchachevskiy.android.mysto.domain.repository.CarRepository
 
 
 class CarRepositoryImpl(private val carDao: CarDao): CarRepository {

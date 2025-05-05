@@ -1,4 +1,4 @@
-package com.likchachevskiy.android.mysto.repository
+package com.likchachevskiy.android.mysto.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.likchachevskiy.android.mysto.domain.entity.Car

@@ -1,6 +1,6 @@
 package com.likchachevskiy.android.mysto.utilits
 
-import com.likchachevskiy.android.mysto.repository.CarRepository
+import com.likchachevskiy.android.mysto.domain.repository.CarRepository
 
 
 lateinit var REPOSITORY: CarRepository

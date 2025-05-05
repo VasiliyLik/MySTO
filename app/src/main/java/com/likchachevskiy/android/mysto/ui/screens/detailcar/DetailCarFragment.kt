@@ -34,7 +34,6 @@ class DetailCarFragment : Fragment(R.layout.fragment_car_detail) {
         R.drawable.police_car
     )
 
-    @SuppressLint("NewApi")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -73,9 +72,7 @@ class DetailCarFragment : Fragment(R.layout.fragment_car_detail) {
             if (indexImage > imageIdList.size - 1) indexImage = 0
             imageId = imageIdList[indexImage]
             binding.ivUpdateCarPhoto.setImageResource(imageId)
-
         }
-
         viewModel = ViewModelProvider(this)[DetailCarViewModel::class.java]
 
         binding.imBtnUpdate.setOnClickListener {
