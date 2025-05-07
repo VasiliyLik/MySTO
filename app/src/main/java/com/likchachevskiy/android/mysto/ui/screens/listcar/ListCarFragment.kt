@@ -8,7 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.likchachevskiy.android.mysto.R
@@ -17,9 +20,12 @@ import com.likchachevskiy.android.mysto.domain.entity.Car
 import com.likchachevskiy.android.mysto.ui.adapter.CarsAdapter
 import com.likchachevskiy.android.mysto.utilits.BUNDLE
 import com.likchachevskiy.android.mysto.utilits.KEY
+import kotlinx.coroutines.launch
 import java.util.Locale
 
 class ListCarFragment : Fragment(R.layout.fragment_car_list) {
+
+    private val viewModel: ListCarViewModel by viewModels()
 
     private var _binding: FragmentCarListBinding? = null
     private val binding get() = _binding!!
@@ -30,20 +36,20 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
 
     private var tempArrayList = ArrayList<Car>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        init()
+        observeCars()
 
         adapter.onItemClick {
             val bundle = Bundle()
@@ -53,8 +59,8 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
         }
     }
 
-    private fun init() {
-        val viewModel = ViewModelProvider(this)[ListCarViewModel::class.java]
+    private fun observeCars() {
+//        val viewModel = ViewModelProvider(this)[ListCarViewModel::class.java]
         viewModel.initDatabase()
 
         searchView = binding.carSearch
@@ -62,11 +68,15 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
         adapter = CarsAdapter(tempArrayList)
         recyclerView.adapter = adapter
 
-        viewModel.getAllCars().observe(viewLifecycleOwner) { listCars ->
-            adapter.setList(listCars.asReversed())
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
 
-            if (listCars.isEmpty())
-                binding.tvCarListInfo.visibility = View.VISIBLE
+                viewModel.getAllCars().collect { listCars ->
+
+                    adapter.setList(listCars.asReversed())
+
+                }
+            }
 
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -102,6 +112,12 @@ class ListCarFragment : Fragment(R.layout.fragment_car_list) {
             }
         }
     }
+
+//    private fun handleOnSuccess(cars: List<Car>) {
+//        binding.progressView.visibility = View.GONE
+//        adapter.setList(cars)
+//        binding.recyclerViewCars.visibility = View.VISIBLE
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

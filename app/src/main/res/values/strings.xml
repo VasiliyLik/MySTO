@@ -18,5 +18,6 @@
     <string name="tv_no_works_added">No works added</string>
     <string name="tv_text">text</string>
     <string name="tv_title_car_name">Model:</string>
+    <string name="cars_no_cars">No cars loaded. Try again, please.</string>
 
 </resources>

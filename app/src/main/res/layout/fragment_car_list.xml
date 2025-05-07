@@ -61,6 +61,12 @@
         android:visibility="invisible"
         tools:ignore="TextContrastCheck,VisualLintOverlap" />
 
+    <ProgressBar
+        android:id="@+id/progressView"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCars"
         android:layout_width="match_parent"

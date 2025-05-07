@@ -1,11 +1,11 @@
 package com.likchachevskiy.android.mysto.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.likchachevskiy.android.mysto.domain.entity.Car
+import kotlinx.coroutines.flow.Flow
 
 interface CarRepository {
 
-    val allCars: LiveData<List<Car>>
+    val allCars: Flow<List<Car>>
 
     suspend fun insertCar(car: Car, onSuccess:() -> Unit)
 
