@@ -1,13 +1,14 @@
 package com.likchachevskiy.android.mysto.data.repository
 
-import androidx.lifecycle.LiveData
 import com.likchachevskiy.android.mysto.data.CarDao
 import com.likchachevskiy.android.mysto.domain.entity.Car
 import com.likchachevskiy.android.mysto.domain.repository.CarRepository
+import kotlinx.coroutines.flow.Flow
 
 
 class CarRepositoryImpl(private val carDao: CarDao): CarRepository {
-    override val allCars: LiveData<List<Car>>
+
+    override val allCars: Flow<List<Car>>
         get() = carDao.getAllCars()
 
     override suspend fun insertCar(car: Car, onSuccess: () -> Unit) {
