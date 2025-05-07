@@ -6,6 +6,7 @@ plugins {
 
     id("com.google.devtools.ksp")
 
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -83,6 +84,8 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation(libs.androidx.room.ktx)
 
-
+    //Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 
 }
